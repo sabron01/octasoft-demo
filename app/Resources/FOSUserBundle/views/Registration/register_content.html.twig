@@ -1,0 +1,77 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'register-form'}}) }}
+<h3>Sign Up</h3>
+<p> Enter your personal details below: </p>
+<div class="form-group">
+      {{ form_label(form.name, 'Full Name', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9'} }) }}
+      <div class="input-icon">
+            <i class="fa fa-font"></i>
+            {{ form_widget(form.name , {'attr': {'class': 'form-control placeholder-no-fix','placeholder' : 'Full Name'  }}) }}
+      </div>
+</div>
+<div class="form-group">
+      {{ form_label(form.email, 'Email', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9'} }) }}         
+      <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            {{ form_widget(form.email , {'attr': {'class': 'form-control placeholder-no-fix','placeholder' : 'Email'  }}) }}
+      </div>
+</div>
+<div class="form-group">
+      {{ form_label(form.addresse, 'Address', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9'} }) }}   
+      <div class="input-icon">
+            <i class="fa fa-check"></i>
+            {{ form_widget(form.addresse , {'attr': {'class': 'form-control placeholder-no-fix','placeholder' : 'Address'  }}) }}
+      </div>
+</div>
+<div class="form-group">
+      {{ form_label(form.city, 'City/Town', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9'} }) }}
+      <div class="input-icon">
+            <i class="fa fa-location-arrow"></i>
+            {{ form_widget(form.city , {'attr': {'class': 'form-control placeholder-no-fix','placeholder' : 'City/Town'  }}) }}
+      </div>
+</div>
+<div class="form-group">
+      {{ form_label(form.country, 'Country', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9 required','aria-required' : 'true'} }) }}
+      {{ form_widget(form.country , {'attr': {'class': 'select2 form-control' }}) }}
+ 
+</div>
+<p> Enter your account details below: </p>
+<div class="form-group">
+      {{ form_label(form.username, 'Username', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9'} }) }}
+      <div class="input-icon">
+            <i class="fa fa-user"></i>
+            {{ form_widget(form.username , {'autocomplete':'off','attr': {'class': 'form-control placeholder-no-fix','placeholder' : 'Username'  }}) }}
+      </div>
+</div>
+<div class="form-group">
+      {{ form_label(form.plainPassword.first, 'Password', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9'} }) }}
+      <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            {{ form_widget(form.plainPassword.first , {'autocomplete':'off','attr': {'class': 'form-control placeholder-no-fix','placeholder' : 'Password'  }}) }}
+      </div>
+</div>
+<div class="form-group">
+      {{ form_label(form.plainPassword.second, 'Re-type Your Password', { 'label_attr': {'class': 'control-label visible-ie8 visible-ie9'} }) }}
+      <div class="controls">
+            <div class="input-icon">
+                  <i class="fa fa-check"></i>
+                  {{ form_widget(form.plainPassword.second , {'autocomplete':'off','attr': {'class': 'form-control placeholder-no-fix','placeholder' : 'Re-type Your Password'  }}) }}
+          </div>
+      </div>
+</div>
+<div class="form-group">
+  <label class="mt-checkbox mt-checkbox-outline">
+      <input type="checkbox" name="tnc" /> I agree to the
+      <a href="javascript:;">Terms of Service </a> &
+      <a href="javascript:;">Privacy Policy </a>
+      <span></span>
+  </label>
+  <div id="register_tnc_error"> </div>
+</div>
+<div class="form-actions">
+  <a href="{{ path("fos_user_security_login") }}" class="btn red btn-outline"> Back </a>
+  <button type="submit" id="register-submit-btn" class="btn green pull-right"> {{ 'registration.submit'|trans }} </button>
+</div>
+{{ form_end(form) }}
+<!-- END REGISTRATION FORM -->
